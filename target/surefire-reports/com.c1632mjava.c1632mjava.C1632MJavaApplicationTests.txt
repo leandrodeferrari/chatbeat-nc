@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.c1632mjava.c1632mjava.C1632MJavaApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.21 s -- in com.c1632mjava.c1632mjava.C1632MJavaApplicationTests
