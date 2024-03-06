@@ -47,11 +47,13 @@ public class SecurityConfiguration {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authRequest ->
-                        /*authRequest.requestMatchers("/users/register").permitAll()
+                        authRequest.requestMatchers("/users/register").permitAll()
+                                .requestMatchers("/chats/**").permitAll()
+                                .requestMatchers("/ws/**").permitAll()
                                 .requestMatchers("/users/login").permitAll()
                                 .anyRequest().authenticated()
-                )*/
-                        authRequest.anyRequest().permitAll())
+                )
+                //authRequest.anyRequest().permitAll())
                 .sessionManagement(sessionManager ->
                         sessionManager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authProvider)
@@ -69,7 +71,7 @@ public class SecurityConfiguration {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:5173", "http://127.0.0.1:5173", "https://chatbeat-nc.web.app"));
+        corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:5173", "http://127.0.0.1:5173", "https://chatbeat-nc.web.app", "https://chatbeat-nocountry.web.app"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setAllowedHeaders(List.of("*"));
